@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+:root {
+  --ease-hotrod: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.35s;
+  --dur-med: 0.6s;
+  --dur-slow: 0.9s;
+}
+
+@theme {
+  --color-cream: #f4ecd8;
+  --color-cream-dim: #e8ddc2;
+  --color-paper: #fbf6ea;
+  --color-asphalt: #121110;
+  --color-asphalt-soft: #201d1a;
+  --color-racing-red: #c8202f;
+  --color-racing-red-dark: #8c1420;
+  --color-racing-red-deep: #5c0d15;
+  --color-chrome: #c9ccd1;
+  --color-mustard: #e2a530;
+
+  --font-display: var(--font-bebas);
+  --font-badge: var(--font-ultra);
+  --font-sans: var(--font-worksans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-asphalt);
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-asphalt);
+  font-family: var(--font-worksans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-racing-red);
+  color: var(--color-cream);
+}
+
+h1, h2, h3, h4,
+.font-display {
+  font-family: var(--font-bebas), sans-serif;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.font-badge {
+  font-family: var(--font-ultra), serif;
+}
+
+/* Checkerboard motif, reusable at any scale via bg-size */
+.checker {
+  background-image:
+    linear-gradient(45deg, var(--color-asphalt) 25%, transparent 25%, transparent 75%, var(--color-asphalt) 75%),
+    linear-gradient(45deg, var(--color-asphalt) 25%, transparent 25%, transparent 75%, var(--color-asphalt) 75%);
+  background-color: var(--color-cream);
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
+}
+
+.checker-invert {
+  background-image:
+    linear-gradient(45deg, var(--color-cream) 25%, transparent 25%, transparent 75%, var(--color-cream) 75%),
+    linear-gradient(45deg, var(--color-cream) 25%, transparent 25%, transparent 75%, var(--color-cream) 75%);
+  background-color: var(--color-asphalt);
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
+}
+
+/* Same motif at cursor-dot scale */
+.checker-mini {
+  background-image:
+    linear-gradient(45deg, var(--color-asphalt) 25%, transparent 25%, transparent 75%, var(--color-asphalt) 75%),
+    linear-gradient(45deg, var(--color-asphalt) 25%, transparent 25%, transparent 75%, var(--color-asphalt) 75%);
+  background-color: var(--color-racing-red);
+  background-position: 0 0, 4px 4px;
+  background-size: 8px 8px;
+}
+
+/* subtle halftone-dot texture overlay (cheap CSS gradient, no SVG filters) */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: radial-gradient(circle, var(--color-cream) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+}
+
+.text-stroke-cream {
+  -webkit-text-stroke: 1.5px var(--color-cream);
+  color: transparent;
+}
+
+.container-edge {
+  padding-left: clamp(1.25rem, 5vw, 5rem);
+  padding-right: clamp(1.25rem, 5vw, 5rem);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes idle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-idle-float {
+  animation: idle-float 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
