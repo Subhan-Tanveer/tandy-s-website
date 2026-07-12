@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import ServiceIcon from "./ServiceIcon";
 import type { Service } from "@/lib/services";
@@ -74,11 +75,24 @@ export default function ServiceCard({
         featured ? "p-8 md:p-10" : "p-6"
       }`}
     >
-      <div
-        className={`absolute -right-6 -top-6 rounded-full bg-racing-red/10 group-hover:bg-racing-red/25 transition-colors duration-500 ${
-          featured ? "w-36 h-36" : "w-24 h-24"
-        }`}
-      />
+      {service.image ? (
+        <>
+          <Image
+            src={service.image}
+            alt={service.title}
+            fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover opacity-40 group-hover:opacity-55 transition-opacity duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-asphalt via-asphalt/70 to-asphalt/20" />
+        </>
+      ) : (
+        <div
+          className={`absolute -right-6 -top-6 rounded-full bg-racing-red/10 group-hover:bg-racing-red/25 transition-colors duration-500 ${
+            featured ? "w-36 h-36" : "w-24 h-24"
+          }`}
+        />
+      )}
       <div ref={iconRef} className="mb-4 relative z-10 inline-block will-change-transform">
         <span
           className="inline-block animate-idle-float motion-reduce:animate-none"

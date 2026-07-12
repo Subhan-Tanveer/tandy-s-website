@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Phone } from "lucide-react";
 import { services } from "@/lib/services";
 import { SITE } from "@/lib/site";
@@ -50,9 +51,21 @@ export default function ServicesPage() {
             } ${i !== services.length - 1 ? "border-b border-asphalt/10" : ""}`}
           >
             <Reveal variant={i % 2 === 0 ? "rise" : "wipe"}>
-              <div className="bg-asphalt text-cream rounded-sm p-10 md:p-14 flex items-center justify-center">
-                <ServiceIcon name={service.icon} size={96} className="text-racing-red" />
-              </div>
+              {service.image ? (
+                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="bg-asphalt text-cream rounded-sm p-10 md:p-14 flex items-center justify-center">
+                  <ServiceIcon name={service.icon} size={96} className="text-racing-red" />
+                </div>
+              )}
             </Reveal>
             <Reveal variant={i % 2 === 0 ? "wipe" : "rise"} delay={0.05}>
               <p className="font-display text-racing-red tracking-[0.2em] uppercase text-sm mb-2">

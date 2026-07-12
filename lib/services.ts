@@ -17,6 +17,8 @@ export type Service = {
     | "Home";
   short: string;
   long: string;
+  /** Path under /public to a real photo of this service, e.g. "/services/interior-window-cleaning.jpg". Falls back to the icon when unset. */
+  image?: string;
 };
 
 export const services: Service[] = [
