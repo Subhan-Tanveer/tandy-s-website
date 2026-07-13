@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Phone, MapPin, ShieldCheck, Star } from "lucide-react";
 import { SITE } from "@/lib/site";
-import Reveal from "@/components/Reveal";
 import RevealStagger from "@/components/RevealStagger";
 import QuoteForm from "@/components/QuoteForm";
 import { FacebookIcon, InstagramIcon } from "@/components/SocialIcons";
@@ -42,9 +41,9 @@ export default function ContactPage() {
 
       <section className="bg-cream py-20 md:py-28 container-edge">
         <div className="grid lg:grid-cols-5 gap-10 md:gap-16">
-          <Reveal variant="wipe" className="lg:col-span-3 bg-white/60 rounded-sm p-6 md:p-10 border-2 border-asphalt/10">
+          <div className="lg:col-span-3 bg-white/60 rounded-sm p-6 md:p-10 border-2 border-asphalt/10 animate-fade-rise-in motion-reduce:animate-none">
             <QuoteForm variant="full" />
-          </Reveal>
+          </div>
 
           <RevealStagger variant="pop" delay={0.1} className="lg:col-span-2 space-y-8">
             <div>

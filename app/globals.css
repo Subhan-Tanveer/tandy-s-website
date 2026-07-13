@@ -124,6 +124,18 @@ h1, h2, h3, h4,
   animation: idle-float 3.6s ease-in-out infinite;
 }
 
+/* Plays once automatically on mount — not gated by IntersectionObserver, so
+   it's used for content (like the quote form) that must never be able to
+   get stuck invisible if a scroll-trigger misbehaves in some browser. */
+@keyframes fade-rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-rise-in {
+  animation: fade-rise-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
