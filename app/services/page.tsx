@@ -5,6 +5,7 @@ import { services } from "@/lib/services";
 import { SITE } from "@/lib/site";
 import ServiceIcon from "@/components/ServiceIcon";
 import Reveal from "@/components/Reveal";
+import RevealStagger from "@/components/RevealStagger";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
@@ -22,7 +23,7 @@ export default function ServicesPage() {
       <section className="relative bg-asphalt pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 checker-invert opacity-[0.04]" />
         <div className="relative container-edge text-center">
-          <Reveal variant="rise">
+          <RevealStagger>
             <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
               What We Do
             </p>
@@ -34,7 +35,7 @@ export default function ServicesPage() {
               services, one standard: old-fashioned craftsmanship on every job,
               every time. Take a look at what we do &mdash; then request a free quote.
             </p>
-          </Reveal>
+          </RevealStagger>
         </div>
       </section>
 
@@ -67,7 +68,7 @@ export default function ServicesPage() {
                 </div>
               )}
             </Reveal>
-            <Reveal variant={i % 2 === 0 ? "wipe" : "rise"} delay={0.05}>
+            <RevealStagger delay={0.05}>
               <p className="font-display text-racing-red tracking-[0.2em] uppercase text-sm mb-2">
                 Service {String(i + 1).padStart(2, "0")}
               </p>
@@ -83,7 +84,7 @@ export default function ServicesPage() {
               >
                 Get a Quote
               </MagneticButton>
-            </Reveal>
+            </RevealStagger>
           </div>
         ))}
       </section>
@@ -92,7 +93,7 @@ export default function ServicesPage() {
 
       <section className="bg-racing-red py-16 md:py-20">
         <div className="container-edge flex flex-col md:flex-row items-center justify-center gap-6 text-center">
-          <Reveal variant="pop">
+          <RevealStagger>
             <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-4">
               <SplitText>Ready to see the Tandy&apos;s difference?</SplitText>
             </h2>
@@ -111,7 +112,7 @@ export default function ServicesPage() {
                 {SITE.phone}
               </a>
             </div>
-          </Reveal>
+          </RevealStagger>
         </div>
       </section>
     </>

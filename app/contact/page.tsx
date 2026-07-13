@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Phone, MapPin, ShieldCheck, Star } from "lucide-react";
 import { SITE } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import RevealStagger from "@/components/RevealStagger";
 import QuoteForm from "@/components/QuoteForm";
 import { FacebookIcon, InstagramIcon } from "@/components/SocialIcons";
 import SectionDivider from "@/components/SectionDivider";
@@ -20,7 +21,7 @@ export default function ContactPage() {
       <section className="relative bg-asphalt pt-36 pb-16 md:pt-44 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 checker-invert opacity-[0.04]" />
         <div className="relative container-edge text-center">
-          <Reveal variant="rise">
+          <RevealStagger>
             <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
               Get In Touch
             </p>
@@ -32,7 +33,7 @@ export default function ContactPage() {
               up with a straightforward quote &mdash; old-fashioned service starts
               with a real answer, not a runaround.
             </p>
-          </Reveal>
+          </RevealStagger>
         </div>
       </section>
 
@@ -45,7 +46,7 @@ export default function ContactPage() {
             <QuoteForm variant="full" />
           </Reveal>
 
-          <Reveal variant="rise" delay={0.1} className="lg:col-span-2 space-y-8">
+          <RevealStagger delay={0.1} className="lg:col-span-2 space-y-8">
             <div>
               <h2 className="font-display text-2xl uppercase tracking-wide mb-4">
                 Contact Details
@@ -106,7 +107,7 @@ export default function ContactPage() {
                 />
               </div>
             </div>
-          </Reveal>
+          </RevealStagger>
         </div>
       </section>
     </>

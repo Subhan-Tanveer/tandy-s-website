@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 import Reveal from "./Reveal";
+import RevealStagger from "./RevealStagger";
 import QuoteForm from "./QuoteForm";
 import SplitText from "./SplitText";
 
@@ -8,7 +9,7 @@ export default function CtaQuoteSection() {
   return (
     <section id="quote" className="relative bg-asphalt py-24 md:py-32">
       <div className="container-edge grid lg:grid-cols-2 gap-12 items-center">
-        <Reveal variant="rise">
+        <RevealStagger>
           <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
             Ready When You Are
           </p>
@@ -26,7 +27,7 @@ export default function CtaQuoteSection() {
             <Phone size={26} className="text-racing-red transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
             {SITE.phone}
           </a>
-        </Reveal>
+        </RevealStagger>
 
         <Reveal variant="wipe" className="bg-cream rounded-sm p-6 md:p-8">
           <QuoteForm variant="compact" />

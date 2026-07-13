@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MessageCircleHeart, ExternalLink } from "lucide-react";
 import { SITE } from "@/lib/site";
 import Reveal from "@/components/Reveal";
+import RevealStagger from "@/components/RevealStagger";
 import StarRow from "@/components/StarRow";
 import ScatteredReviewWall from "@/components/ScatteredReviewWall";
 import Counter from "@/components/Counter";
@@ -22,7 +23,7 @@ export default function ReviewsPage() {
       <section className="relative bg-asphalt pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 checker-invert opacity-[0.04]" />
         <div className="relative container-edge text-center">
-          <Reveal variant="rise">
+          <RevealStagger>
             <StarRow size={28} immediate className="justify-center mb-4" />
             <h1 className="font-display text-5xl md:text-7xl uppercase text-cream mb-6">
               <SplitText>What Fort Worth Is Saying</SplitText>
@@ -45,7 +46,7 @@ export default function ReviewsPage() {
                 </p>
               </div>
             </div>
-          </Reveal>
+          </RevealStagger>
         </div>
       </section>
 
@@ -62,7 +63,7 @@ export default function ReviewsPage() {
 
         <ScatteredReviewWall className="mb-14" />
 
-        <Reveal variant="pop" className="text-center">
+        <RevealStagger className="text-center">
           <p className="text-asphalt/70 mb-5 max-w-xl mx-auto">
             These are just a few of the 43 five-star reviews on Google. Read the
             full history &mdash; including the owner&apos;s personal replies &mdash;
@@ -74,13 +75,13 @@ export default function ReviewsPage() {
           >
             View All Reviews on Google <ExternalLink size={18} />
           </MagneticButton>
-        </Reveal>
+        </RevealStagger>
       </section>
 
       <SectionDivider variant="normal" />
 
       <section className="bg-racing-red py-16 md:py-20">
-        <Reveal variant="rise" className="container-edge text-center">
+        <RevealStagger className="container-edge text-center">
           <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-4">
             <SplitText>Ready to Join Them?</SplitText>
           </h2>
@@ -94,7 +95,7 @@ export default function ReviewsPage() {
           >
             Request a Free Quote
           </MagneticButton>
-        </Reveal>
+        </RevealStagger>
       </section>
     </>
   );

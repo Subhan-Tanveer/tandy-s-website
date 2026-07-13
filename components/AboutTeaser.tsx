@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight } from "lucide-react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
-import Reveal from "./Reveal";
+import RevealStagger from "./RevealStagger";
 import QualitySeal from "./QualitySeal";
 import SplitText from "./SplitText";
 
@@ -92,7 +92,7 @@ export default function AboutTeaser() {
       </div>
 
       <div className="relative container-edge max-w-3xl mx-auto text-center">
-        <Reveal variant="rise">
+        <RevealStagger>
           <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-4">
             Our Story
           </p>
@@ -110,7 +110,7 @@ export default function AboutTeaser() {
           >
             Meet the Crew <ArrowRight size={20} />
           </Link>
-        </Reveal>
+        </RevealStagger>
       </div>
     </section>
   );

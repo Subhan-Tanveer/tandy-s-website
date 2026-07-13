@@ -8,11 +8,13 @@ export default function RevealStagger({
   className = "",
   childSelector = ":scope > *",
   stagger = 0.12,
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
   childSelector?: string;
   stagger?: number;
+  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -61,11 +63,11 @@ export default function RevealStagger({
 
     const items = el.querySelectorAll<HTMLElement>(childSelector);
     items.forEach((item, i) => {
-      item.style.transitionDelay = `${i * (reduced ? 0.06 : stagger)}s`;
+      item.style.transitionDelay = `${delay + i * (reduced ? 0.06 : stagger)}s`;
       item.style.opacity = "1";
       item.style.transform = "translateY(0) scale(1)";
     });
-  }, [shown, childSelector, stagger, reduced]);
+  }, [shown, childSelector, stagger, delay, reduced]);
 
   return (
     <div ref={ref} className={className}>

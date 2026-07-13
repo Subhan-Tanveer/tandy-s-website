@@ -60,7 +60,7 @@ export default function AboutPage() {
         </span>
 
         <div className="relative container-edge grid md:grid-cols-2 gap-16 items-center">
-          <Reveal variant="rise">
+          <RevealStagger>
             <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
               Our Story
             </p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
               standards &mdash; the kind where a handshake meant something and a job
               wasn&apos;t done until it was actually done right.
             </p>
-          </Reveal>
+          </RevealStagger>
           <Reveal variant="wipe" delay={0.1} className="md:pl-6">
             <blockquote className="bg-racing-red text-cream font-display text-2xl md:text-4xl uppercase leading-tight p-8 md:p-10 rounded-sm border-l-8 border-cream shadow-2xl md:-rotate-2 md:translate-x-6">
               &ldquo;{SITE.tagline}&rdquo;
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
       <section className="bg-cream py-20 md:py-28 container-edge">
         <div className="grid md:grid-cols-5 gap-10 md:gap-16 items-center max-w-5xl mx-auto">
-          <Reveal variant="rise" className="md:col-span-3">
+          <RevealStagger className="md:col-span-3">
             <span className="font-badge text-racing-red text-7xl md:text-9xl leading-none block">
               &ldquo;
             </span>
@@ -96,7 +96,7 @@ export default function AboutPage() {
               will not leave a customer&apos;s home until they are completely
               satisfied.
             </p>
-          </Reveal>
+          </RevealStagger>
 
           <RevealStagger className="md:col-span-2 flex md:flex-col gap-6 md:gap-10 justify-center md:border-l md:border-asphalt/10 md:pl-10">
             <div>
@@ -130,7 +130,7 @@ export default function AboutPage() {
       <SectionDivider variant="normal" />
 
       <section className="bg-asphalt py-20 md:py-28 container-edge">
-        <Reveal variant="rise" className="max-w-2xl mx-auto text-center mb-14">
+        <RevealStagger className="max-w-2xl mx-auto text-center mb-14">
           <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
             Meet The Crew
           </p>
@@ -144,7 +144,7 @@ export default function AboutPage() {
             &ldquo;Loren and his team were so thorough and professional,&rdquo; as one
             customer put it.
           </p>
-        </Reveal>
+        </RevealStagger>
 
         <RevealStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {values.map((v, i) => (
@@ -174,7 +174,7 @@ export default function AboutPage() {
       <SectionDivider variant="invert" />
 
       <section className="bg-racing-red py-16 md:py-20">
-        <Reveal variant="pop" className="container-edge text-center">
+        <RevealStagger className="container-edge text-center">
           <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-6">
             <SplitText>Let&apos;s Give Your Home the 1950&apos;s Treatment</SplitText>
           </h2>
@@ -184,7 +184,7 @@ export default function AboutPage() {
           >
             Request a Free Quote
           </MagneticButton>
-        </Reveal>
+        </RevealStagger>
       </section>
     </>
   );
