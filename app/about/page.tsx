@@ -86,7 +86,7 @@ export default function AboutPage() {
 
       <section className="bg-cream py-20 md:py-28 container-edge">
         <div className="grid md:grid-cols-5 gap-10 md:gap-16 items-center max-w-5xl mx-auto">
-          <RevealStagger className="md:col-span-3">
+          <RevealStagger variant="wipe" className="md:col-span-3">
             <span className="font-badge text-racing-red text-7xl md:text-9xl leading-none block">
               &ldquo;
             </span>
@@ -98,7 +98,7 @@ export default function AboutPage() {
             </p>
           </RevealStagger>
 
-          <RevealStagger className="md:col-span-2 flex md:flex-col gap-6 md:gap-10 justify-center md:border-l md:border-asphalt/10 md:pl-10">
+          <RevealStagger variant="pop" className="md:col-span-2 flex md:flex-col gap-6 md:gap-10 justify-center md:border-l md:border-asphalt/10 md:pl-10">
             <div>
               <div className="font-display text-4xl md:text-5xl text-racing-red">
                 <Counter value={5.0} decimals={1} />
@@ -130,7 +130,7 @@ export default function AboutPage() {
       <SectionDivider variant="normal" />
 
       <section className="bg-asphalt py-20 md:py-28 container-edge">
-        <RevealStagger className="max-w-2xl mx-auto text-center mb-14">
+        <RevealStagger variant="wipe" className="max-w-2xl mx-auto text-center mb-14">
           <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
             Meet The Crew
           </p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
           </p>
         </RevealStagger>
 
-        <RevealStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <RevealStagger variant="pop" stagger={0.08} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {values.map((v, i) => (
             <div
               key={v.title}
@@ -174,7 +174,7 @@ export default function AboutPage() {
       <SectionDivider variant="invert" />
 
       <section className="bg-racing-red py-16 md:py-20">
-        <RevealStagger className="container-edge text-center">
+        <RevealStagger variant="pop" className="container-edge text-center">
           <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-6">
             <SplitText>Let&apos;s Give Your Home the 1950&apos;s Treatment</SplitText>
           </h2>

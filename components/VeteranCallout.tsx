@@ -8,6 +8,7 @@ export default function VeteranCallout() {
       <div className="absolute top-0 inset-x-0 h-3 checker-invert" />
       <div className="absolute bottom-0 inset-x-0 h-3 checker-invert" />
       <RevealStagger
+        variant="pop"
         stagger={0.15}
         className="container-edge flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 text-center"
       >

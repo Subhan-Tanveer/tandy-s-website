@@ -46,7 +46,7 @@ export default function ContactPage() {
             <QuoteForm variant="full" />
           </Reveal>
 
-          <RevealStagger delay={0.1} className="lg:col-span-2 space-y-8">
+          <RevealStagger variant="pop" delay={0.1} className="lg:col-span-2 space-y-8">
             <div>
               <h2 className="font-display text-2xl uppercase tracking-wide mb-4">
                 Contact Details

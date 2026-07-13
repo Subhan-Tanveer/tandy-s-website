@@ -65,7 +65,7 @@ export default function HowItWorks() {
       ref={sectionRef}
       className="relative bg-asphalt py-24 md:py-32 container-edge overflow-hidden"
     >
-      <RevealStagger className="max-w-2xl mx-auto text-center mb-16 md:mb-24">
+      <RevealStagger variant="wipe" className="max-w-2xl mx-auto text-center mb-16 md:mb-24">
         <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
           How It Works
         </p>
@@ -94,7 +94,7 @@ export default function HowItWorks() {
 
         <div className="grid md:grid-cols-3 gap-10 md:gap-6 relative">
           {STEPS.map((step, i) => (
-            <RevealStagger key={step.title} delay={i * 0.15} stagger={0.1} className="text-center">
+            <RevealStagger key={step.title} variant="pop" delay={i * 0.15} stagger={0.1} className="text-center">
               <div className="relative mx-auto w-20 h-20 rounded-full bg-racing-red flex items-center justify-center mb-6">
                 <step.icon size={30} className="text-cream" />
                 <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-cream text-racing-red font-badge text-sm flex items-center justify-center">

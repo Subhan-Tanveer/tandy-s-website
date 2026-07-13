@@ -10,7 +10,7 @@ const FEATURED_INDICES = new Set([0, 5]);
 export default function ServicesGrid() {
   return (
     <section className="relative bg-cream py-24 md:py-32 container-edge">
-      <RevealStagger className="max-w-2xl mx-auto text-center mb-16">
+      <RevealStagger variant="wipe" className="max-w-2xl mx-auto text-center mb-16">
         <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
           What We Do
         </p>
@@ -21,7 +21,7 @@ export default function ServicesGrid() {
         </h2>
       </RevealStagger>
 
-      <RevealStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <RevealStagger variant="pop" stagger={0.06} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {services.map((service, i) => {
           const featured = FEATURED_INDICES.has(i);
           return (

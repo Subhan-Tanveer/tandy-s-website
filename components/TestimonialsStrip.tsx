@@ -10,7 +10,7 @@ export default function TestimonialsStrip() {
   return (
     <section className="relative bg-asphalt py-24 md:py-32 container-edge overflow-hidden">
       <div className="absolute inset-0 checker-invert opacity-[0.04]" />
-      <RevealStagger className="relative max-w-2xl mx-auto text-center mb-16">
+      <RevealStagger variant="wipe" className="relative max-w-2xl mx-auto text-center mb-16">
         <StarRow size={22} className="justify-center mb-3" />
         <h2 className="font-display text-4xl md:text-6xl uppercase text-cream">
           <SplitText>

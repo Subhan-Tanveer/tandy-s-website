@@ -63,7 +63,7 @@ export default function ReviewsPage() {
 
         <ScatteredReviewWall className="mb-14" />
 
-        <RevealStagger className="text-center">
+        <RevealStagger variant="pop" className="text-center">
           <p className="text-asphalt/70 mb-5 max-w-xl mx-auto">
             These are just a few of the 43 five-star reviews on Google. Read the
             full history &mdash; including the owner&apos;s personal replies &mdash;
@@ -81,7 +81,7 @@ export default function ReviewsPage() {
       <SectionDivider variant="normal" />
 
       <section className="bg-racing-red py-16 md:py-20">
-        <RevealStagger className="container-edge text-center">
+        <RevealStagger variant="wipe" className="container-edge text-center">
           <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-4">
             <SplitText>Ready to Join Them?</SplitText>
           </h2>

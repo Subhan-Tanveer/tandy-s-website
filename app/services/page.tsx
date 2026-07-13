@@ -51,9 +51,9 @@ export default function ServicesPage() {
               i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
             } ${i !== services.length - 1 ? "border-b border-asphalt/10" : ""}`}
           >
-            <Reveal variant={i % 2 === 0 ? "rise" : "wipe"}>
+            <Reveal variant={i % 2 === 0 ? "rise" : "pop"} className="aspect-[4/3]">
               {service.image ? (
-                <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
+                <div className="relative w-full h-full rounded-sm overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -63,12 +63,12 @@ export default function ServicesPage() {
                   />
                 </div>
               ) : (
-                <div className="bg-asphalt text-cream rounded-sm p-10 md:p-14 flex items-center justify-center">
+                <div className="w-full h-full bg-asphalt text-cream rounded-sm flex items-center justify-center">
                   <ServiceIcon name={service.icon} size={96} className="text-racing-red" />
                 </div>
               )}
             </Reveal>
-            <RevealStagger delay={0.05}>
+            <RevealStagger variant={i % 2 === 0 ? "wipe" : "rise"} delay={0.05}>
               <p className="font-display text-racing-red tracking-[0.2em] uppercase text-sm mb-2">
                 Service {String(i + 1).padStart(2, "0")}
               </p>
@@ -93,7 +93,7 @@ export default function ServicesPage() {
 
       <section className="bg-racing-red py-16 md:py-20">
         <div className="container-edge flex flex-col md:flex-row items-center justify-center gap-6 text-center">
-          <RevealStagger>
+          <RevealStagger variant="pop">
             <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-4">
               <SplitText>Ready to see the Tandy&apos;s difference?</SplitText>
             </h2>
