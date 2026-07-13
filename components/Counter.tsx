@@ -81,8 +81,9 @@ export default function Counter({
       );
       observer.observe(el);
 
-      // Hard fail-safe — content must never be able to stay at 0 forever.
-      const fallback = window.setTimeout(play, 1200);
+      // Last-resort fail-safe only — a short timeout here would count up a
+      // fixed time after page load regardless of scroll position.
+      const fallback = window.setTimeout(play, 15000);
       timers.push(fallback);
 
       return () => {

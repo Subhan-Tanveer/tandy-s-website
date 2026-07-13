@@ -34,10 +34,11 @@ export default function Reveal({
     );
     observer.observe(el);
 
-    // Hard fail-safe: content must never be able to stay invisible forever.
-    // Plain CSS transitions driven by React state (below) can't get stuck
-    // the way a JS-ticker-driven tween library can if its ticker stalls.
-    const fallback = window.setTimeout(() => setShown(true), 1200);
+    // Last-resort fail-safe only — IntersectionObserver is reliable, so this
+    // should never actually fire in normal use. Keep it long: a short timeout
+    // here reveals every section a fixed time after page load regardless of
+    // scroll position, which defeats the whole point of a scroll reveal.
+    const fallback = window.setTimeout(() => setShown(true), 15000);
 
     return () => {
       observer.disconnect();

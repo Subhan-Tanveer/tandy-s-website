@@ -66,8 +66,9 @@ export default function SplitText({
     );
     observer.observe(el);
 
-    // Hard fail-safe: content must never be able to stay invisible forever.
-    const fallback = window.setTimeout(() => setShown(true), 1200);
+    // Last-resort fail-safe only — a short timeout here would reveal every
+    // heading a fixed time after page load regardless of scroll position.
+    const fallback = window.setTimeout(() => setShown(true), 15000);
 
     return () => {
       observer.disconnect();

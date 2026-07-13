@@ -59,7 +59,9 @@ export default function AboutTeaser() {
     );
     observer.observe(section);
 
-    const fallback = window.setTimeout(() => setSealShown(true), 1200);
+    // Last-resort fail-safe only — a short timeout here would reveal the
+    // seal badge a fixed time after page load regardless of scroll position.
+    const fallback = window.setTimeout(() => setSealShown(true), 15000);
 
     return () => {
       observer.disconnect();
