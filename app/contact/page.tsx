@@ -99,8 +99,8 @@ export default function ContactPage() {
               </h2>
               <div className="rounded-sm overflow-hidden border-2 border-asphalt/10 aspect-video">
                 <iframe
-                  title="Tandy's Window Services area map — Fort Worth, TX 76116"
-                  src="https://www.google.com/maps?q=Fort+Worth,+TX+76116&output=embed"
+                  title="Tandy's Window Services area map — Dallas-Fort Worth, TX"
+                  src="https://www.google.com/maps?q=Dallas-Fort+Worth,+TX&z=9&output=embed"
                   className="w-full h-full"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
