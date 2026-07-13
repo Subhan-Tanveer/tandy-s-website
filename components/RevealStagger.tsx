@@ -10,9 +10,15 @@ function applyHiddenStyle(item: HTMLElement, variant: Variant, reduced: boolean)
     variant === "pop" ? "cubic-bezier(0.34, 1.56, 0.64, 1)" : "cubic-bezier(0.16, 1, 0.3, 1)";
 
   if (variant === "wipe") {
-    item.style.transitionProperty = "clip-path";
+    // clip-path alone drives the visual sweep, but pairing it with opacity
+    // is a deliberate safety net: clip-path doesn't reliably keep
+    // IntersectionObserver from reporting stale/incorrect intersection in
+    // every browser, whereas opacity is the same battle-tested mechanism
+    // the rise/pop variants already rely on without issue.
+    item.style.transitionProperty = "clip-path, opacity";
     item.style.transitionDuration = reduced ? "500ms" : "1000ms";
     item.style.clipPath = "inset(0 0 0 100%)";
+    item.style.opacity = "0";
     return;
   }
 
@@ -31,6 +37,7 @@ function applyHiddenStyle(item: HTMLElement, variant: Variant, reduced: boolean)
 function applyShownStyle(item: HTMLElement, variant: Variant) {
   if (variant === "wipe") {
     item.style.clipPath = "inset(0 0 0 0%)";
+    item.style.opacity = "1";
     return;
   }
   item.style.opacity = "1";

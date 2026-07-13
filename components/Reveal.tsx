@@ -56,8 +56,14 @@ export default function Reveal({
   if (variant === "wipe") {
     style = {
       ...baseStyle,
+      // clip-path alone drives the visual sweep, but pairing it with opacity
+      // is a deliberate safety net: clip-path doesn't reliably keep
+      // IntersectionObserver from reporting stale/incorrect intersection in
+      // every browser, whereas opacity is the same battle-tested mechanism
+      // the rise/pop variants already rely on without issue.
       clipPath: active ? "inset(0 0 0 0%)" : "inset(0 0 0 100%)",
-      transitionProperty: "clip-path",
+      opacity: active ? 1 : 0,
+      transitionProperty: "clip-path, opacity",
       transitionDuration: reduced ? "500ms" : "1000ms",
       transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
     };
