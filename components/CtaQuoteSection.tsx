@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 import RevealStagger from "./RevealStagger";
+import ScrollRevealGsap from "./ScrollRevealGsap";
 import QuoteForm from "./QuoteForm";
 import SplitText from "./SplitText";
 
@@ -28,9 +29,9 @@ export default function CtaQuoteSection() {
           </a>
         </RevealStagger>
 
-        <div className="bg-cream rounded-sm p-6 md:p-8 animate-fade-rise-in motion-reduce:animate-none">
+        <ScrollRevealGsap className="bg-cream rounded-sm p-6 md:p-8">
           <QuoteForm variant="compact" />
-        </div>
+        </ScrollRevealGsap>
       </div>
     </section>
   );
