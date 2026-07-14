@@ -10,7 +10,7 @@ import { SITE, HERO_VIDEO } from "@/lib/site";
 import MagneticButton from "./MagneticButton";
 import Counter from "./Counter";
 import StarRow from "./StarRow";
-import { SunRays, Skyline, HotRod, Squeegee } from "./HeroArt";
+import { SunRays, Skyline, Squeegee } from "./HeroArt";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -199,10 +199,6 @@ export default function Hero() {
             style={{ transform: "translateY(calc(var(--parallax-mid) * 1px))" }}
           >
             <Skyline className="w-full h-32 md:h-48 opacity-80" />
-          </div>
-
-          <div className="absolute inset-x-0 bottom-0 flex justify-center">
-            <HotRod className="w-[85%] max-w-2xl h-auto" />
           </div>
 
           {/* grime overlay wiped away by scroll */}
