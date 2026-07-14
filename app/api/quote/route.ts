@@ -8,6 +8,7 @@ type QuotePayload = {
   address?: string;
   services?: string[];
   veteran?: boolean;
+  howHeard?: string;
   message?: string;
 };
 
@@ -30,6 +31,7 @@ function buildEmailHtml(payload: QuotePayload) {
     { label: "Phone", value: payload.phone },
     { label: "Email", value: payload.email },
     { label: "Address", value: payload.address },
+    { label: "How They Heard About Us", value: payload.howHeard },
   ].filter((row) => row.value);
 
   const rowsHtml = rows
@@ -237,6 +239,7 @@ export async function POST(req: NextRequest) {
     payload.address ? `Address: ${payload.address}` : null,
     payload.services?.length ? `Services: ${payload.services.join(", ")}` : null,
     payload.veteran ? "Veteran discount requested: yes" : null,
+    payload.howHeard ? `How they heard about us: ${payload.howHeard}` : null,
     payload.message ? `Message: ${payload.message}` : null,
   ].filter(Boolean);
 

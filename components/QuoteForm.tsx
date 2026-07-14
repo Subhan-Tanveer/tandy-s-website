@@ -7,7 +7,17 @@ import MagneticButton from "./MagneticButton";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function QuoteForm({ variant = "full" }: { variant?: "full" | "compact" }) {
+const HEAR_ABOUT_OPTIONS = [
+  "Google Search",
+  "Google Maps",
+  "Facebook",
+  "Instagram",
+  "Referral / Word of Mouth",
+  "Yard Sign",
+  "Other",
+];
+
+export default function QuoteForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -25,6 +35,7 @@ export default function QuoteForm({ variant = "full" }: { variant?: "full" | "co
       address: data.get("address"),
       services: data.getAll("services"),
       veteran: data.get("veteran") === "on",
+      howHeard: data.get("howHeard"),
       message: data.get("message"),
     };
 
@@ -66,48 +77,65 @@ export default function QuoteForm({ variant = "full" }: { variant?: "full" | "co
         <Field label="Property Address" name="address" autoComplete="street-address" />
       </div>
 
-      {variant === "full" && (
-        <fieldset>
-          <legend className="font-display uppercase tracking-wide text-sm text-asphalt/70 mb-2">
-            Services Needed
-          </legend>
-          <div className="grid sm:grid-cols-2 gap-2">
-            {services.map((s) => (
-              <label
-                key={s.slug}
-                className="flex items-center gap-2 text-sm text-asphalt/80 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  name="services"
-                  value={s.title}
-                  className="w-4 h-4 accent-[var(--color-racing-red)]"
-                />
-                {s.title}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-      )}
+      <fieldset>
+        <legend className="font-display uppercase tracking-wide text-sm text-asphalt/70 mb-2">
+          Services Needed
+        </legend>
+        <div className="grid sm:grid-cols-2 gap-2">
+          {services.map((s) => (
+            <label
+              key={s.slug}
+              className="flex items-center gap-2 text-sm text-asphalt/80 cursor-pointer"
+            >
+              <input
+                type="checkbox"
+                name="services"
+                value={s.title}
+                className="w-4 h-4 accent-[var(--color-racing-red)]"
+              />
+              {s.title}
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       <label className="flex items-center gap-2 text-sm text-asphalt/80 cursor-pointer">
         <input type="checkbox" name="veteran" className="w-4 h-4 accent-[var(--color-racing-red)]" />
         I&apos;m a veteran (ask about our discount)
       </label>
 
-      {variant === "full" && (
-        <div>
-          <label htmlFor="message" className="block font-display uppercase tracking-wide text-sm text-asphalt/70 mb-1">
-            Anything else we should know?
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            rows={4}
-            className="w-full bg-white/60 border-2 border-asphalt/15 rounded-sm px-4 py-3 focus:border-racing-red focus:outline-none transition-colors duration-300"
-          />
-        </div>
-      )}
+      <div>
+        <label htmlFor="howHeard" className="block font-display uppercase tracking-wide text-sm text-asphalt/70 mb-1">
+          How did you hear about us?
+        </label>
+        <select
+          id="howHeard"
+          name="howHeard"
+          defaultValue=""
+          className="w-full bg-white/60 border-2 border-asphalt/15 rounded-sm px-4 py-3 focus:border-racing-red focus:outline-none transition-colors duration-300"
+        >
+          <option value="" disabled>
+            Select an option
+          </option>
+          {HEAR_ABOUT_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="message" className="block font-display uppercase tracking-wide text-sm text-asphalt/70 mb-1">
+          Anything else we should know?
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          className="w-full bg-white/60 border-2 border-asphalt/15 rounded-sm px-4 py-3 focus:border-racing-red focus:outline-none transition-colors duration-300"
+        />
+      </div>
 
       {status === "error" && (
         <div className="flex items-center gap-2 text-racing-red-dark text-sm">

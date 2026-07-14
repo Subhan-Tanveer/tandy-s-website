@@ -30,7 +30,7 @@ export default function CtaQuoteSection() {
         </RevealStagger>
 
         <ScrollRevealGsap className="bg-cream rounded-sm p-6 md:p-8">
-          <QuoteForm variant="compact" />
+          <QuoteForm />
         </ScrollRevealGsap>
       </div>
     </section>
