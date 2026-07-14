@@ -12,13 +12,15 @@ export default function Footer() {
       <RevealStagger className="container-edge py-14 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3 mb-3">
-            <Image
-              src="/brand/tandys-logo.png"
-              alt="Tandy's Window Services"
-              width={56}
-              height={56}
-              className="h-14 w-14 rounded-full"
-            />
+            <div className="relative h-14 w-14 rounded-full bg-black overflow-hidden flex items-center justify-center shrink-0">
+              <Image
+                src="/brand/tandys-logo.png"
+                alt="Tandy's Window Services"
+                width={56}
+                height={56}
+                className="h-[66%] w-[66%] object-contain"
+              />
+            </div>
             <div className="flex items-baseline gap-2">
               <span className="font-badge text-3xl text-cream">TANDY&apos;S</span>
               <span className="font-display text-racing-red tracking-[0.2em] uppercase">
