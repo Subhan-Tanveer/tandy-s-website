@@ -143,6 +143,16 @@ export default function Hero() {
         <Skyline className="absolute inset-x-0 bottom-[18%] w-full h-32 md:h-48 opacity-80" />
       </div>
 
+      {/* vignette — darkens the edges so the video/illustration doesn't
+          compete with the headline, keeps the center bright */}
+      <div
+        className="absolute inset-0 pointer-events-none z-[5]"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.65) 100%)",
+        }}
+      />
+
       <div className="absolute top-0 inset-x-0 h-4 md:h-6 checker z-10" />
       <div className="absolute bottom-0 inset-x-0 h-4 md:h-6 checker z-10" />
 
