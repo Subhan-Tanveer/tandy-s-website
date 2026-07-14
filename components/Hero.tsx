@@ -45,7 +45,16 @@ export default function Hero() {
     };
     const onError = () => setVideoReady(false);
 
-    video.addEventListener("loadedmetadata", onReady);
+    // The video can finish loading (and fire loadedmetadata) before this
+    // effect runs and attaches its listener — preload="auto" starts
+    // fetching the instant the element mounts, and a fast/cached load can
+    // beat React's post-paint effect timing. Check readyState directly so
+    // that race can't leave the fallback scene showing forever.
+    if (video.readyState >= 1) {
+      onReady();
+    } else {
+      video.addEventListener("loadedmetadata", onReady);
+    }
     video.addEventListener("error", onError);
     return () => {
       video.removeEventListener("loadedmetadata", onReady);
