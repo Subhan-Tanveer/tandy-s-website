@@ -51,16 +51,14 @@ export default function Nav() {
         }`}
       >
         <Link href="/" className="flex items-center gap-2 group" aria-label="Tandy's Window Services home">
-          <div className="relative h-12 w-12 md:h-14 md:w-14 rounded-full bg-black overflow-hidden flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-            <Image
-              src="/brand/tandys-logo.png"
-              alt="Tandy's Window Services"
-              width={56}
-              height={56}
-              priority
-              className="h-[66%] w-[66%] object-contain"
-            />
-          </div>
+          <Image
+            src="/brand/tandys-logo.png"
+            alt="Tandy's Window Services"
+            width={56}
+            height={56}
+            priority
+            className="h-12 w-12 md:h-14 md:w-14 transition-transform duration-300 group-hover:scale-105"
+          />
           <span className="hidden sm:flex flex-col leading-none">
             <span className="font-badge text-xl md:text-2xl tracking-wide text-cream group-hover:text-racing-red transition-colors duration-300">
               TANDY&apos;S
