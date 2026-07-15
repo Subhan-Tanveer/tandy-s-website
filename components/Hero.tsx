@@ -153,6 +153,18 @@ export default function Hero() {
         }}
       />
 
+      {/* top-down scrim — the headline/subhead/quote block sits near the top
+          of the section, where the radial vignette above is at its lightest,
+          so text can wash out against a bright sky/rooftop. This flat
+          gradient guarantees contrast regardless of what's behind it. */}
+      <div
+        className="absolute inset-x-0 top-0 h-[60%] pointer-events-none z-[5]"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 45%, transparent 100%)",
+        }}
+      />
+
       <div className="absolute top-0 inset-x-0 h-4 md:h-6 checker z-10" />
       <div className="absolute bottom-0 inset-x-0 h-4 md:h-6 checker z-10" />
 
