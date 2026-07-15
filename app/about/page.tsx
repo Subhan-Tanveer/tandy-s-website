@@ -9,6 +9,7 @@ import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import SplitText from "@/components/SplitText";
+import BackgroundVideo from "@/components/BackgroundVideo";
 
 export const metadata: Metadata = {
   title: "About Us — Fort Worth's 5-Star Window Cleaning Team",
@@ -51,6 +52,11 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative bg-asphalt pt-36 pb-32 md:pt-44 md:pb-40 overflow-hidden">
+        <BackgroundVideo src="/videos/about-hero.mp4" className="opacity-40" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at center, rgba(18,17,16,0.55) 0%, rgba(18,17,16,0.92) 100%)" }}
+        />
         <div className="absolute inset-0 checker-invert opacity-[0.04]" />
         <span
           aria-hidden="true"
