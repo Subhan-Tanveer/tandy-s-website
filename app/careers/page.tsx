@@ -6,6 +6,7 @@ import CareerApplicationForm from "@/components/CareerApplicationForm";
 import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import SplitText from "@/components/SplitText";
+import BackgroundVideo from "@/components/BackgroundVideo";
 
 export const metadata: Metadata = {
   title: "Careers — Now Hiring in the DFW Area",
@@ -39,6 +40,11 @@ export default function CareersPage() {
   return (
     <>
       <section className="relative bg-asphalt pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden">
+        <BackgroundVideo src="/videos/careers-hero.mp4" className="opacity-40" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at center, rgba(18,17,16,0.55) 0%, rgba(18,17,16,0.92) 100%)" }}
+        />
         <div className="absolute inset-0 checker-invert opacity-[0.04]" />
         <div className="relative container-edge text-center">
           <RevealStagger>
