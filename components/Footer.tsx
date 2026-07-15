@@ -21,7 +21,7 @@ export default function Footer() {
             />
             <div className="flex items-baseline gap-2">
               <span className="font-badge text-3xl text-cream">TANDY&apos;S</span>
-              <span className="font-badge text-xl text-racing-red tracking-wide uppercase">
+              <span className="font-badge text-xl text-cream tracking-wide uppercase">
                 Window Services
               </span>
             </div>
