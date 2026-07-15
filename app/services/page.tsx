@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Phone } from "lucide-react";
 import { services } from "@/lib/services";
 import { SITE } from "@/lib/site";
@@ -11,6 +10,7 @@ import SectionDivider from "@/components/SectionDivider";
 import MarqueeTicker from "@/components/MarqueeTicker";
 import SplitText from "@/components/SplitText";
 import BackgroundVideo from "@/components/BackgroundVideo";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 export const metadata: Metadata = {
   title: "Window, Gutter & Solar Panel Cleaning Services",
@@ -59,15 +59,7 @@ export default function ServicesPage() {
           >
             <Reveal variant={i % 2 === 0 ? "rise" : "pop"} className="aspect-[4/3]">
               {service.image ? (
-                <div className="relative w-full h-full rounded-sm overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
+                <BeforeAfterSlider src={service.image} alt={service.title} />
               ) : (
                 <div className="w-full h-full bg-asphalt text-cream rounded-sm flex items-center justify-center">
                   <ServiceIcon name={service.icon} size={96} className="text-racing-red" />
