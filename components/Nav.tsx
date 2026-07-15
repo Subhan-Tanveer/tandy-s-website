@@ -63,7 +63,7 @@ export default function Nav() {
             <span className="font-badge text-xl md:text-2xl tracking-wide text-cream group-hover:text-racing-red transition-colors duration-300">
               TANDY&apos;S
             </span>
-            <span className="font-display text-xs md:text-sm text-racing-red tracking-[0.2em] uppercase mt-1">
+            <span className="font-display text-sm md:text-base text-cream tracking-[0.2em] uppercase mt-1">
               Window Services
             </span>
           </span>
