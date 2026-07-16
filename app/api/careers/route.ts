@@ -105,6 +105,66 @@ function buildEmailHtml(payload: ApplicationPayload) {
 </html>`;
 }
 
+function buildApplicantEmailHtml(payload: ApplicationPayload) {
+  return `
+<!DOCTYPE html>
+<html>
+  <body style="margin:0;padding:0;background:#e8ddc2;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e8ddc2;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:${CREAM};border-radius:4px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.12);">
+            <tr>
+              <td style="background:${ASPHALT};padding:0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    ${Array.from({ length: 12 })
+                      .map(
+                        (_, i) =>
+                          `<td style="width:${100 / 12}%;height:8px;background:${i % 2 === 0 ? CREAM : ASPHALT};"></td>`
+                      )
+                      .join("")}
+                  </tr>
+                </table>
+                <div style="padding:32px 32px 28px;">
+                  <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:${RACING_RED};font-weight:700;">
+                    Tandy&rsquo;s Window Services
+                  </p>
+                  <h1 style="margin:8px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:26px;letter-spacing:1px;text-transform:uppercase;color:${CREAM};">
+                    Got Your Application, ${escapeHtml(payload.name!.split(" ")[0])}
+                  </h1>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:32px;">
+                <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:16px;color:${ASPHALT};line-height:1.6;">
+                  Thanks for applying to Tandy&rsquo;s Window Services for the
+                  <strong>${escapeHtml(payload.position!)}</strong> position. Your application
+                  came through loud and clear &mdash; we&rsquo;ll review it and reach out if
+                  it&rsquo;s a fit, old-fashioned service, no runaround.
+                </p>
+                <p style="margin:24px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:${ASPHALT}99;">
+                  Questions in the meantime? Call or text
+                  <a href="tel:+14694058713" style="color:${RACING_RED};font-weight:700;text-decoration:none;">(469) 405-8713</a>.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="background:${RACING_RED};padding:18px 32px;">
+                <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:${CREAM};">
+                  5.0 stars &middot; 43 Google reviews &middot; Fort Worth, TX
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
 export async function POST(req: NextRequest) {
   let payload: ApplicationPayload;
   try {
@@ -155,6 +215,29 @@ export async function POST(req: NextRequest) {
         { error: "Failed to send email" },
         { status: 502 }
       );
+    }
+
+    // Confirmation to the applicant is best-effort — if it fails, the owner
+    // notification above already went through, so the request still counts
+    // as a success rather than a failure.
+    try {
+      const transporter = nodemailer.createTransport({
+        host: SMTP_HOST,
+        port: Number(SMTP_PORT) || 587,
+        secure: Number(SMTP_PORT) === 465,
+        auth: { user: SMTP_USER, pass: SMTP_PASS },
+      });
+
+      await transporter.sendMail({
+        from: `"Tandy's Window Services" <${SMTP_USER}>`,
+        to: payload.email,
+        replyTo: QUOTE_TO_EMAIL,
+        subject: "We got your application — Tandy's Window Services",
+        text: `Thanks for applying, ${payload.name}! We got your application for the ${payload.position} position and will follow up if it's a fit. Questions? Call or text (469) 405-8713.`,
+        html: buildApplicantEmailHtml(payload),
+      });
+    } catch (err) {
+      console.error("Failed to send applicant confirmation email:", err);
     }
   } else {
     // SMTP not configured yet — log so submissions are never silently lost during setup.
