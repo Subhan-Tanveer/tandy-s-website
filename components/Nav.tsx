@@ -60,7 +60,10 @@ export default function Nav() {
             className="h-12 w-12 md:h-14 md:w-14 transition-transform duration-300 group-hover:scale-105"
           />
           <span className="hidden sm:flex flex-col leading-none">
-            <span className="font-badge text-xl md:text-2xl tracking-wide text-cream group-hover:text-racing-red transition-colors duration-300">
+            <span
+              className="font-badge text-xl md:text-2xl tracking-wide text-cream group-hover:text-racing-red transition-colors duration-300 origin-left w-fit block"
+              style={{ transform: "scaleX(1.5066)" }}
+            >
               TANDY&apos;S
             </span>
             <span className="font-badge text-sm md:text-base text-cream tracking-wide uppercase mt-1">
