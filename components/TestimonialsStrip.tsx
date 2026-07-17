@@ -14,7 +14,7 @@ export default function TestimonialsStrip() {
         <StarRow size={22} className="justify-center mb-3" />
         <h2 className="font-display text-4xl md:text-6xl uppercase text-cream">
           <SplitText>
-            {`${SITE.rating.toFixed(1)} Stars.`} <span className="text-racing-red">{`${SITE.reviewCount} Reviews.`}</span>
+            {`${SITE.rating} Stars.`} <span className="text-racing-red">{`${SITE.reviewCount} Reviews.`}</span>
           </SplitText>
         </h2>
         <p className="text-cream/60 mt-4">
