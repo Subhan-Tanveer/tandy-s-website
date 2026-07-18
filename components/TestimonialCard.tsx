@@ -3,14 +3,16 @@
 import { useRef } from "react";
 import { Quote, Star } from "lucide-react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
+import { useIsCoarsePointer } from "@/lib/useIsCoarsePointer";
 import type { Testimonial } from "@/lib/testimonials";
 
 export default function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const coarsePointer = useIsCoarsePointer();
 
   function handleMove(e: React.MouseEvent) {
-    if (reduced || !ref.current) return;
+    if (reduced || coarsePointer || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width - 0.5;
     const py = (e.clientY - rect.top) / rect.height - 0.5;
