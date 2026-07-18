@@ -43,7 +43,7 @@ const values = [
     icon: Award,
     title: "A Perfect Track Record",
     body:
-      "5.0 stars across 43 Google reviews, with the team personally thanking nearly every customer who leaves one.",
+      "5.0 stars across 43 Google reviews, with the team personally thanking every customer who leaves one.",
     featured: false,
   },
 ];

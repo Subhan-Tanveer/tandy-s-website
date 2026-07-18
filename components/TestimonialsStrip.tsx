@@ -18,7 +18,7 @@ export default function TestimonialsStrip() {
           </SplitText>
         </h2>
         <p className="text-cream/60 mt-4">
-          The owner personally replies to nearly every one &mdash; here&apos;s what customers are saying.
+          The owner personally replies to every one &mdash; here&apos;s what customers are saying.
         </p>
       </RevealStagger>
 

@@ -63,7 +63,7 @@ export default function ReviewsPage() {
         <Reveal variant="rise" className="max-w-2xl mx-auto text-center mb-6">
           <div className="inline-flex items-center gap-2 text-racing-red font-display uppercase tracking-wide mb-8">
             <MessageCircleHeart size={22} />
-            The owner personally replies to nearly every review
+            The owner personally replies to every review
           </div>
         </Reveal>
 
