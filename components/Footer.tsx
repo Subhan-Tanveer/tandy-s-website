@@ -17,7 +17,7 @@ export default function Footer() {
               alt="Tandy's Window Services"
               width={56}
               height={56}
-              className="h-14 w-14 shrink-0"
+              className="h-12 w-12 md:h-14 md:w-14 shrink-0"
             />
             <div className="flex flex-col leading-none">
               <span className="font-badge text-4xl text-cream">TANDY&apos;S</span>
