@@ -70,7 +70,7 @@ export default function ReviewsPage() {
         <ScatteredReviewWall className="mb-14" />
 
         <RevealStagger variant="pop" className="text-center">
-          <p className="text-asphalt/70 mb-5 max-w-xl mx-auto">
+          <p className="text-asphalt/70 text-base md:text-lg mb-5 max-w-xl mx-auto">
             These are just a few of the 43 five-star reviews on Google. Read the
             full history &mdash; including the owner&apos;s personal replies &mdash;
             straight from the source.
@@ -91,7 +91,7 @@ export default function ReviewsPage() {
           <h2 className="font-display text-3xl md:text-5xl uppercase text-cream mb-4">
             <SplitText>Ready to Join Them?</SplitText>
           </h2>
-          <p className="text-cream/85 mb-6 max-w-xl mx-auto">
+          <p className="text-cream/85 text-base md:text-lg mb-6 max-w-xl mx-auto">
             Old-fashioned service, a perfect track record, and a veteran discount
             when you need it.
           </p>

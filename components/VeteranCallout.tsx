@@ -19,7 +19,7 @@ export default function VeteranCallout() {
           <h2 className="font-display text-2xl md:text-4xl uppercase text-cream">
             <SplitText>Veteran Discount Available</SplitText>
           </h2>
-          <p className="text-cream/85 mt-1">
+          <p className="text-cream/85 text-base md:text-lg mt-1">
             A small thank-you from our family business to yours. Ask about it when you request your quote.
           </p>
         </div>

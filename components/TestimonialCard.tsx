@@ -37,7 +37,7 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
           <Star key={i} size={16} fill="#e2a530" className="text-mustard" />
         ))}
       </div>
-      <p className="text-asphalt/80 leading-relaxed flex-1">&ldquo;{testimonial.quote}&rdquo;</p>
+      <p className="text-asphalt/80 text-base md:text-lg leading-relaxed flex-1">&ldquo;{testimonial.quote}&rdquo;</p>
       <div className="mt-6 pt-4 border-t border-asphalt/10">
         <p className="font-display text-lg uppercase tracking-wide">{testimonial.name}</p>
         <p className="text-asphalt/50 text-base">{testimonial.meta}</p>

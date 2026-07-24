@@ -93,7 +93,7 @@ export default function CareersPage() {
             <div key={position.title} className="bg-white/60 border-2 border-asphalt/10 rounded-sm p-8">
               <position.icon size={36} className="text-racing-red mb-4" />
               <h3 className="font-display text-2xl uppercase mb-3">{position.title}</h3>
-              <p className="text-asphalt/75 leading-relaxed">{position.body}</p>
+              <p className="text-asphalt/75 text-base md:text-lg leading-relaxed">{position.body}</p>
             </div>
           ))}
         </RevealStagger>

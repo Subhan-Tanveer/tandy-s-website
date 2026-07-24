@@ -29,7 +29,7 @@ export default function Footer() {
               </span>
             </div>
           </div>
-          <p className="text-cream/70 max-w-sm mb-4">
+          <p className="text-cream/70 text-base md:text-lg max-w-sm mb-4">
             &ldquo;{SITE.tagline}&rdquo;
           </p>
           <div className="flex items-center gap-2 text-mustard font-display text-lg">

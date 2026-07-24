@@ -47,7 +47,7 @@ export default function CareerApplicationForm() {
       <div className="bg-cream border-2 border-racing-red rounded-sm p-8 text-center transition-opacity duration-500">
         <CheckCircle2 size={40} className="text-racing-red mx-auto mb-3" />
         <h3 className="font-display text-2xl uppercase mb-2">Application Sent</h3>
-        <p className="text-asphalt/70">
+        <p className="text-asphalt/70 text-base md:text-lg">
           Thanks for your interest &mdash; we&apos;ll review your application and be in touch soon.
         </p>
       </div>

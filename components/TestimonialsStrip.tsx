@@ -17,7 +17,7 @@ export default function TestimonialsStrip() {
             {`${SITE.rating} Stars.`} <span className="text-racing-red">{`${SITE.reviewCount} Reviews.`}</span>
           </SplitText>
         </h2>
-        <p className="text-cream/60 mt-4">
+        <p className="text-cream/60 text-base md:text-lg mt-4">
           The owner personally replies to every one &mdash; here&apos;s what customers are saying.
         </p>
       </RevealStagger>
