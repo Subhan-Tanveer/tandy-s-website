@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
       </RevealStagger>
       <div className="border-t border-cream/10 py-5">
-        <div className="container-edge flex flex-col sm:flex-row justify-between gap-2 text-sm text-cream/50">
+        <div className="container-edge flex flex-col sm:flex-row justify-between gap-2 text-base text-cream/50">
           <p>&copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
           <p>Fort Worth, TX &middot; Serving the surrounding area</p>
         </div>

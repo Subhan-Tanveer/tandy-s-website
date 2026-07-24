@@ -40,7 +40,7 @@ export default function TestimonialCard({ testimonial }: { testimonial: Testimon
       <p className="text-asphalt/80 leading-relaxed flex-1">&ldquo;{testimonial.quote}&rdquo;</p>
       <div className="mt-6 pt-4 border-t border-asphalt/10">
         <p className="font-display text-lg uppercase tracking-wide">{testimonial.name}</p>
-        <p className="text-asphalt/50 text-sm">{testimonial.meta}</p>
+        <p className="text-asphalt/50 text-base">{testimonial.meta}</p>
       </div>
     </div>
   );

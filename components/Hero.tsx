@@ -175,7 +175,7 @@ export default function Hero() {
           className="flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-mustard/50 bg-black/30 backdrop-blur-sm will-change-transform"
         >
           <StarRow size={14} immediate delay={0.25} />
-          <span className="text-cream text-sm md:text-base tracking-wide">
+          <span className="text-cream text-base md:text-lg tracking-wide">
             {SITE.rating.toFixed(1)} stars &middot; {SITE.reviewCount} Google reviews
           </span>
         </div>

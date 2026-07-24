@@ -25,7 +25,7 @@ export default function MarqueeTicker({
         {loop.map((item, i) => (
           <span
             key={i}
-            className="font-display text-cream/80 text-sm md:text-base tracking-[0.3em] uppercase mx-6 flex items-center gap-6 shrink-0"
+            className="font-display text-cream/80 text-base md:text-lg tracking-[0.3em] uppercase mx-6 flex items-center gap-6 shrink-0"
           >
             {item}
             <span className="text-racing-red">&#10022;</span>

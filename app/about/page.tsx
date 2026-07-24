@@ -169,7 +169,7 @@ export default function AboutPage() {
               <h3 className={`font-display uppercase tracking-wide mb-2 ${v.featured ? "text-2xl md:text-3xl" : "text-lg"}`}>
                 <SplitText stagger={0.02}>{v.title}</SplitText>
               </h3>
-              <p className={`text-asphalt/70 ${v.featured ? "text-base md:text-lg max-w-md" : "text-sm"}`}>
+              <p className={`text-asphalt/70 ${v.featured ? "text-base md:text-lg max-w-md" : "text-base md:text-lg"}`}>
                 {v.body}
               </p>
             </div>
