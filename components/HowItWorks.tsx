@@ -104,7 +104,7 @@ export default function HowItWorks() {
               <h3 className="font-display text-xl md:text-2xl uppercase text-cream mb-2">
                 {step.title}
               </h3>
-              <p className="text-cream/60 text-sm md:text-base max-w-xs mx-auto">
+              <p className="text-cream/60 text-base md:text-lg max-w-xs mx-auto">
                 {step.body}
               </p>
             </RevealStagger>

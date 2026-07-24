@@ -112,7 +112,7 @@ export default function ServiceCard({
       >
         {service.title}
       </h3>
-      <p className={`text-cream/60 relative z-10 ${featured ? "text-base md:text-lg max-w-md" : "text-sm"}`}>
+      <p className={`text-cream/60 relative z-10 ${featured ? "text-base md:text-lg max-w-md" : "text-base md:text-lg"}`}>
         {featured ? service.long : service.short}
       </p>
     </Link>
