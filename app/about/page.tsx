@@ -67,7 +67,7 @@ export default function AboutPage() {
 
         <div className="relative container-edge grid md:grid-cols-2 gap-16 items-center">
           <RevealStagger>
-            <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
+            <p className="font-display text-racing-red tracking-[0.3em] uppercase text-base md:text-lg mb-3">
               Our Story
             </p>
             <h1 className="font-display text-5xl md:text-7xl uppercase text-cream mb-6">
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
       <section className="bg-asphalt py-20 md:py-28 container-edge">
         <RevealStagger variant="wipe" className="max-w-2xl mx-auto text-center mb-14">
-          <p className="font-display text-racing-red tracking-[0.3em] uppercase text-sm mb-3">
+          <p className="font-display text-racing-red tracking-[0.3em] uppercase text-base md:text-lg mb-3">
             Meet The Crew
           </p>
           <h2 className="font-display text-4xl md:text-6xl uppercase text-cream mb-6">
