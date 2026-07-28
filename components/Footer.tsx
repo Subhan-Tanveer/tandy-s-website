@@ -20,9 +20,9 @@ export default function Footer() {
               className="h-12 w-12 md:h-14 md:w-14 shrink-0"
             />
             <div className="flex flex-col leading-none">
-              <span className="font-badge text-4xl text-cream">TANDY&apos;S</span>
+              <span className="font-badge text-2xl md:text-3xl text-cream">TANDY&apos;S</span>
               <span
-                className="font-badge text-2xl text-cream tracking-wide uppercase mt-0 origin-left w-fit block"
+                className="font-badge text-base md:text-lg text-cream tracking-wide uppercase mt-0 origin-left w-fit block"
                 style={{ transform: "scaleX(0.6637)" }}
               >
                 Window Services
