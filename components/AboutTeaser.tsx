@@ -95,7 +95,7 @@ export default function AboutTeaser() {
 
       <div className="relative container-edge max-w-3xl mx-auto text-center">
         <RevealStagger variant="pop">
-          <p className="font-display text-racing-red tracking-[0.3em] uppercase text-base md:text-lg mb-4">
+          <p className="font-display text-racing-red tracking-[0.3em] uppercase text-lg md:text-2xl mb-4">
             Our Story
           </p>
           <h2 className="font-display text-4xl md:text-6xl uppercase mb-6">

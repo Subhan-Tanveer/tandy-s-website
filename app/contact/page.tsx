@@ -28,7 +28,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 checker-invert opacity-[0.04]" />
         <div className="relative container-edge text-center">
           <RevealStagger>
-            <p className="font-display text-racing-red tracking-[0.3em] uppercase text-base md:text-lg mb-3">
+            <p className="font-display text-racing-red tracking-[0.3em] uppercase text-lg md:text-2xl mb-3">
               Get In Touch
             </p>
             <h1 className="font-display text-5xl md:text-7xl uppercase text-cream mb-5">

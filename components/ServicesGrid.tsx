@@ -11,7 +11,7 @@ export default function ServicesGrid() {
   return (
     <section className="relative bg-cream py-24 md:py-32 container-edge">
       <RevealStagger variant="wipe" className="max-w-2xl mx-auto text-center mb-16">
-        <p className="font-display text-racing-red tracking-[0.3em] uppercase text-base md:text-lg mb-3">
+        <p className="font-display text-racing-red tracking-[0.3em] uppercase text-lg md:text-2xl mb-3">
           What We Do
         </p>
         <h2 className="font-display text-4xl md:text-6xl uppercase">

@@ -10,7 +10,7 @@ export default function CtaQuoteSection() {
     <section id="quote" className="relative bg-asphalt py-24 md:py-32">
       <div className="container-edge grid lg:grid-cols-2 gap-12 items-center">
         <RevealStagger>
-          <p className="font-display text-racing-red tracking-[0.3em] uppercase text-base md:text-lg mb-3">
+          <p className="font-display text-racing-red tracking-[0.3em] uppercase text-lg md:text-2xl mb-3">
             Ready When You Are
           </p>
           <h2 className="font-display text-4xl md:text-6xl uppercase text-cream mb-6">
