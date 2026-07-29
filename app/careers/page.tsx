@@ -83,7 +83,7 @@ export default function CareersPage() {
               className="bg-asphalt text-cream rounded-sm p-6 text-center border-2 border-transparent hover:border-racing-red transition-colors duration-300"
             >
               <perk.icon size={32} className="text-racing-red mx-auto mb-4" />
-              <p className="font-display uppercase tracking-wide">{perk.label}</p>
+              <p className="font-display uppercase tracking-wide text-base md:text-lg">{perk.label}</p>
             </div>
           ))}
         </RevealStagger>
