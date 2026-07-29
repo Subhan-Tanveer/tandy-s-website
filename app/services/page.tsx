@@ -75,7 +75,7 @@ export default function ServicesPage() {
               )}
             </Reveal>
             <RevealStagger variant={i % 2 === 0 ? "wipe" : "rise"} delay={0.05}>
-              <p className="font-display text-racing-red tracking-[0.2em] uppercase text-sm mb-2">
+              <p className="font-display text-racing-red tracking-[0.2em] uppercase text-base md:text-lg mb-2">
                 Service {String(i + 1).padStart(2, "0")}
               </p>
               <h2 className="font-display text-3xl md:text-5xl uppercase mb-4">
