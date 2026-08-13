@@ -153,7 +153,7 @@ export default function Hero() {
         </div>
 
         {/* RIGHT SIDE: Form + Headline (stacks on top on mobile) */}
-        <div className="relative z-10 order-1 md:order-2 bg-asphalt md:bg-transparent h-auto md:h-screen flex flex-col items-center justify-center px-6 py-12 md:py-0 md:px-8 md:pr-10">
+        <div className="relative z-10 order-1 md:order-2 bg-asphalt h-auto md:h-screen flex flex-col items-center justify-center px-6 py-12 md:py-0 md:px-8 md:pr-10">
           <div className="w-full max-w-md">
             {/* Badge + Headline for mobile/small screens */}
             <div
