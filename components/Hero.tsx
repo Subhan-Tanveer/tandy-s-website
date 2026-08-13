@@ -9,7 +9,6 @@ import { SITE, HERO_VIDEO } from "@/lib/site";
 import MagneticButton from "./MagneticButton";
 import Counter from "./Counter";
 import StarRow from "./StarRow";
-import QuoteForm from "./QuoteForm";
 import { SunRays, Skyline } from "./HeroArt";
 
 export default function Hero() {
