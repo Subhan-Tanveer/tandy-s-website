@@ -123,6 +123,7 @@ export default function Hero() {
         ref={videoRef}
         key={videoSrc}
         src={videoSrc}
+        autoPlay
         muted
         loop
         playsInline
