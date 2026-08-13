@@ -9,6 +9,7 @@ import { SITE, HERO_VIDEO } from "@/lib/site";
 import MagneticButton from "./MagneticButton";
 import Counter from "./Counter";
 import StarRow from "./StarRow";
+import QuoteForm from "./QuoteForm";
 import { SunRays, Skyline } from "./HeroArt";
 
 export default function Hero() {
@@ -117,138 +118,120 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-asphalt grain">
-      {/* real footage, once loaded — crossfades in over the illustrated scene and autoplays on a loop */}
-      <video
-        ref={videoRef}
-        key={videoSrc}
-        src={videoSrc}
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-          videoReady ? "opacity-100" : "opacity-0"
-        }`}
-      />
+    <section className="relative min-h-screen w-full overflow-hidden bg-asphalt grain">
+      <div className="absolute top-0 inset-x-0 h-4 md:h-6 checker z-10" />
 
-      {/* illustrated fallback scene — stays visible until real footage is ready */}
-      <div
-        className={`absolute inset-0 transition-opacity duration-700 ${
-          videoReady ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3a1210] via-asphalt-soft to-asphalt" />
-        <SunRays className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[140%] max-w-none opacity-70" />
-        <Skyline className="absolute inset-x-0 bottom-[18%] w-full h-32 md:h-48 opacity-80" />
+      {/* Grid layout: video left, form right (stacks on mobile) */}
+      <div className="relative h-full grid md:grid-cols-2 gap-0 md:min-h-screen">
+
+        {/* LEFT SIDE: Video + fallback */}
+        <div className="relative h-screen md:h-auto order-2 md:order-1">
+          {/* real footage */}
+          <video
+            ref={videoRef}
+            key={videoSrc}
+            src={videoSrc}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              videoReady ? "opacity-100" : "opacity-0"
+            }`}
+          />
+
+          {/* illustrated fallback scene */}
+          <div
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              videoReady ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-[#3a1210] via-asphalt-soft to-asphalt" />
+            <SunRays className="absolute -top-[10%] left-1/2 -translate-x-1/2 w-[140%] max-w-none opacity-70" />
+            <Skyline className="absolute inset-x-0 bottom-[18%] w-full h-32 md:h-48 opacity-80" />
+          </div>
+        </div>
+
+        {/* RIGHT SIDE: Form + Headline (stacks on top on mobile) */}
+        <div className="relative z-10 order-1 md:order-2 bg-asphalt h-auto md:h-screen flex flex-col items-center justify-center px-6 py-12 md:py-0 md:px-8 md:pr-10">
+          <div className="w-full max-w-md">
+            {/* Badge + Headline for mobile/small screens */}
+            <div
+              ref={badgeRef}
+              className="flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-mustard/50 bg-black/30 backdrop-blur-sm will-change-transform w-fit"
+            >
+              <StarRow size={12} immediate delay={0.25} />
+              <span className="text-cream text-sm tracking-wide">
+                {SITE.rating.toFixed(1)} stars • {SITE.reviewCount} reviews
+              </span>
+            </div>
+
+            <h1
+              ref={headlineRef}
+              className="font-display text-cream text-4xl md:text-5xl leading-tight uppercase mb-3 will-change-transform"
+            >
+              Fort Worth&apos;s <span className="text-racing-red">5-Star</span> Window Cleaning
+            </h1>
+
+            <p
+              ref={subRef}
+              className="font-display text-mustard text-lg md:text-xl tracking-wide uppercase mb-2 will-change-transform"
+            >
+              Old-Fashioned Service Since Day One
+            </p>
+
+            <p
+              ref={quoteRef}
+              className="text-cream/70 text-sm md:text-base mb-8 will-change-transform"
+            >
+              &ldquo;{SITE.tagline}&rdquo;
+            </p>
+
+            {/* The Form */}
+            <div ref={ctaRef} className="will-change-transform">
+              <QuoteForm />
+            </div>
+
+            {/* Stats below form */}
+            <div ref={statsRef} className="grid grid-cols-3 gap-4 mt-8 text-center">
+              <div>
+                <div className="font-display text-3xl text-racing-red">
+                  <Counter value={5.0} decimals={1} immediate delay={1.7} />
+                </div>
+                <p className="text-cream/60 text-xs uppercase tracking-wide mt-1">
+                  Rating
+                </p>
+              </div>
+              <div>
+                <div className="font-display text-3xl text-racing-red">
+                  <Counter value={43} immediate delay={1.8} />
+                </div>
+                <p className="text-cream/60 text-xs uppercase tracking-wide mt-1">
+                  Reviews
+                </p>
+              </div>
+              <div>
+                <div className="font-display text-3xl text-racing-red">
+                  <Counter value={13} immediate delay={1.9} />
+                </div>
+                <p className="text-cream/60 text-xs uppercase tracking-wide mt-1">
+                  Services
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* vignette — darkens the edges so the video/illustration doesn't
-          compete with the headline, keeps the center bright */}
-      <div
-        className="absolute inset-0 pointer-events-none z-[5]"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.65) 100%)",
-        }}
-      />
-
-      {/* top-down scrim — the headline/subhead/quote block sits near the top
-          of the section, where the radial vignette above is at its lightest,
-          so text can wash out against a bright sky/rooftop. This flat
-          gradient guarantees contrast regardless of what's behind it. */}
-      <div
-        className="absolute inset-x-0 top-0 h-[60%] pointer-events-none z-[5]"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.35) 45%, transparent 100%)",
-        }}
-      />
-
-      <div className="absolute top-0 inset-x-0 h-4 md:h-6 checker z-10" />
       <div className="absolute bottom-0 inset-x-0 h-4 md:h-6 checker z-10" />
 
-      {/* headline content, always legible regardless of video state */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-start text-center px-6 pt-36 pb-8 md:pt-40">
-        <div
-          ref={badgeRef}
-          className="flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-mustard/50 bg-black/30 backdrop-blur-sm will-change-transform"
-        >
-          <StarRow size={14} immediate delay={0.25} />
-          <span className="text-cream text-base md:text-lg tracking-wide">
-            {SITE.rating.toFixed(1)} stars &middot; {SITE.reviewCount} Google reviews
-          </span>
-        </div>
-
-        <h1
-          ref={headlineRef}
-          className="font-display text-cream text-[13vw] sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] uppercase max-w-5xl will-change-transform"
-        >
-          Fort Worth&apos;s <span className="text-racing-red">5-Star</span> Window Cleaning
-        </h1>
-        <p
-          ref={subRef}
-          className="font-display text-mustard text-xl md:text-3xl tracking-wide uppercase mt-4 will-change-transform"
-        >
-          Old-Fashioned Service Since Day One
-        </p>
-        <p
-          ref={quoteRef}
-          className="text-cream/70 max-w-xl mt-4 text-base md:text-lg will-change-transform"
-        >
-          &ldquo;{SITE.tagline}&rdquo;
-        </p>
-
-        <div ref={ctaRef} className="flex flex-col sm:flex-row items-center gap-4 mt-8">
-          <MagneticButton
-            href="/contact"
-            className="bg-racing-red text-cream font-display text-xl md:text-2xl tracking-wide uppercase px-8 py-4 rounded-sm border-2 border-racing-red hover:bg-transparent hover:text-racing-red active:scale-95"
-          >
-            Request a Free Quote
-          </MagneticButton>
-          <MagneticButton
-            href={SITE.phoneHref}
-            className="text-cream font-display text-xl md:text-2xl tracking-wide uppercase px-8 py-4 border-2 border-cream/40 rounded-sm hover:border-racing-red hover:text-racing-red active:scale-95"
-          >
-            <Phone size={20} className="text-racing-red" />
-            {SITE.phone}
-          </MagneticButton>
-        </div>
-
-        <div ref={statsRef} className="grid grid-cols-3 gap-6 md:gap-16 mt-12">
-          <div>
-            <div className="font-display text-4xl md:text-5xl text-racing-red">
-              <Counter value={5.0} decimals={1} immediate delay={1.7} />
-            </div>
-            <p className="text-cream/60 text-xs md:text-sm uppercase tracking-wide mt-1">
-              Google Rating
-            </p>
-          </div>
-          <div>
-            <div className="font-display text-4xl md:text-5xl text-racing-red">
-              <Counter value={43} immediate delay={1.8} />
-            </div>
-            <p className="text-cream/60 text-xs md:text-sm uppercase tracking-wide mt-1">
-              5-Star Reviews
-            </p>
-          </div>
-          <div>
-            <div className="font-display text-4xl md:text-5xl text-racing-red">
-              <Counter value={13} immediate delay={1.9} />
-            </div>
-            <p className="text-cream/60 text-xs md:text-sm uppercase tracking-wide mt-1">
-              Services Offered
-            </p>
-          </div>
-        </div>
-
-        <div
-          ref={scrollCueRef}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-cream/50 animate-bounce"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ChevronDown size={18} />
-        </div>
+      {/* Scroll cue only on desktop */}
+      <div
+        ref={scrollCueRef}
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-cream/50 animate-bounce z-20"
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <ChevronDown size={18} />
       </div>
     </section>
   );
